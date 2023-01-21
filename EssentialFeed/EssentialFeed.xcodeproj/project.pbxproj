@@ -13,6 +13,7 @@
 		4464F4282969C431009C7070 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4464F4272969C431009C7070 /* RemoteFeedLoader.swift */; };
 		447D240C297C15BD003CCDD6 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D240B297C15BD003CCDD6 /* FeedLoader.swift */; };
 		447D240E297C1928003CCDD6 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D240D297C1928003CCDD6 /* HTTPClient.swift */; };
+		447D2410297C19EB003CCDD6 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D240F297C19EB003CCDD6 /* FeedItemsMapper.swift */; };
 		449A2F872972E21100F699A2 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449A2F862972E21100F699A2 /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		4464F4272969C431009C7070 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		447D240B297C15BD003CCDD6 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		447D240D297C1928003CCDD6 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		447D240F297C19EB003CCDD6 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		449A2F862972E21100F699A2 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 			children = (
 				4464F4272969C431009C7070 /* RemoteFeedLoader.swift */,
 				447D240D297C1928003CCDD6 /* HTTPClient.swift */,
+				447D240F297C19EB003CCDD6 /* FeedItemsMapper.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447D2410297C19EB003CCDD6 /* FeedItemsMapper.swift in Sources */,
 				447D240C297C15BD003CCDD6 /* FeedLoader.swift in Sources */,
 				449A2F872972E21100F699A2 /* FeedItem.swift in Sources */,
 				447D240E297C1928003CCDD6 /* HTTPClient.swift in Sources */,
