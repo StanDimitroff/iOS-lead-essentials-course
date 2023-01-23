@@ -62,7 +62,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     // Act
     let samples = [199, 201, 300, 400, 500]
     samples.enumerated().forEach { index, code in
-      expect(sut, toCompleteWith: .failure(RemoteFeedLoader.Error.invalidData), when: {
+      expect(sut, toCompleteWith: failure(.invalidData), when: {
         let json = makeItemsJSON([])
         client.complete(withStatusCode: code, data: json, at: index)
       })
@@ -73,7 +73,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     // Arrange
     let (sut, client) = makeSUT()
 
-    expect(sut, toCompleteWith: .failure(RemoteFeedLoader.Error.invalidData), when: {
+    expect(sut, toCompleteWith: failure(.invalidData), when: {
       let invalidJSON = Data("invalid JSON".utf8)
       client.complete(withStatusCode: 200, data: invalidJSON)
     })
@@ -140,7 +140,6 @@ final class RemoteFeedLoaderTests: XCTestCase {
   }
 
   private func makeItem(description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
-
     let item = FeedItem(
       id: UUID(),
       description: description,
@@ -181,6 +180,10 @@ final class RemoteFeedLoaderTests: XCTestCase {
     action()
 
     wait(for: [exp], timeout: 1.0)
+  }
+
+  private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
+    .failure(error)
   }
 
   private class HTTPClientSpy: HTTPClient {
