@@ -30,7 +30,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
   }
 
   func test_loadTwice_requestsDataFromURL() {
-    // Arrangeu
+    // Arrange
     let url = URL(string: "https://test.com")!
     let (sut, client) = makeSUT(url: url)
 
@@ -69,7 +69,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
   }
 
-  func test_load_deliversError200HTTPResponseWithInvalidJSON() {
+  func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
     // Arrange
     let (sut, client) = makeSUT()
 
@@ -87,6 +87,8 @@ final class RemoteFeedLoaderTests: XCTestCase {
       client.complete(withStatusCode: 200, data: emptyJSON)
     })
   }
+
+  // MARK: - Happy path
 
   func test_load_deliversItemsOn200HTTPResponseWithJSONItemsList() {
     let (sut, client) = makeSUT()
