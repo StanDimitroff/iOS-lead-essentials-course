@@ -79,31 +79,31 @@ final class CacheFeedUseCaseTests: XCTestCase {
     let store = FeedStoreSpy()
     var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init )
 
-    var receivedError: Error?
-    sut?.save([uniqueItem()]) { error in
-      receivedError = error
+    var receivedResults = [LocalFeedLoader.SaveResult]()
+    sut?.save([uniqueItem()]) {
+      receivedResults.append($0)
     }
 
     sut = nil
     store.completeDeletion(with: anyNSError())
 
-    XCTAssertNil(receivedError)
+    XCTAssertTrue(receivedResults.isEmpty)
   }
 
   func test_save_doesNotDeliverInsertionErrorAfterSUTInstanceHasBeenDeallocated() {
     let store = FeedStoreSpy()
     var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init )
 
-    var receivedError: Error?
-    sut?.save([uniqueItem()]) { error in
-      receivedError = error
+    var receivedResults = [LocalFeedLoader.SaveResult]()
+    sut?.save([uniqueItem()]) {
+      receivedResults.append($0)
     }
 
     store.completeDeletionSuccessfully()
     sut = nil
     store.completeInsertion(with: anyNSError())
 
-    XCTAssertNil(receivedError)
+    XCTAssertTrue(receivedResults.isEmpty)
   }
 
   // MARK: - Helpers
