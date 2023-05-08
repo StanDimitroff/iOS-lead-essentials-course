@@ -12,16 +12,16 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
 
   func test_endToEndTestServerGETFeedResult_matchesFixedAccountData() {
     switch getFeedResult() {
-      case let .success(items)?:
-        XCTAssertEqual(items.count, 8, "Expected 8 items int the test account feed.")
-        XCTAssertEqual(items[0], expectedItem(at: 0))
-        XCTAssertEqual(items[1], expectedItem(at: 1))
-        XCTAssertEqual(items[2], expectedItem(at: 2))
-        XCTAssertEqual(items[3], expectedItem(at: 3))
-        XCTAssertEqual(items[4], expectedItem(at: 4))
-        XCTAssertEqual(items[5], expectedItem(at: 5))
-        XCTAssertEqual(items[6], expectedItem(at: 6))
-        XCTAssertEqual(items[7], expectedItem(at: 7))
+      case let .success(imageFeed)?:
+        XCTAssertEqual(imageFeed.count, 8, "Expected 8 images int the test account image feed.")
+        XCTAssertEqual(imageFeed[0], expectedImage(at: 0))
+        XCTAssertEqual(imageFeed[1], expectedImage(at: 1))
+        XCTAssertEqual(imageFeed[2], expectedImage(at: 2))
+        XCTAssertEqual(imageFeed[3], expectedImage(at: 3))
+        XCTAssertEqual(imageFeed[4], expectedImage(at: 4))
+        XCTAssertEqual(imageFeed[5], expectedImage(at: 5))
+        XCTAssertEqual(imageFeed[6], expectedImage(at: 6))
+        XCTAssertEqual(imageFeed[7], expectedImage(at: 7))
 
       case let .failure(error)?:
         XCTFail("Expected successful feed result, got \(error) instead.")
@@ -52,16 +52,16 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
     return receivedResult
   }
 
-  private func expectedItem(at index: Int) -> FeedItem {
-    return FeedItem(
+  private func expectedImage(at index: Int) -> FeedImage {
+    FeedImage(
       id: id(at: index),
       description: description(at: index),
       location: location(at: index),
-      imageURL: imageURL(at: index))
+      url: imageURL(at: index))
   }
 
   private func id(at index: Int) -> UUID {
-    return UUID(uuidString: [
+    UUID(uuidString: [
       "73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6",
       "BA298A85-6275-48D3-8315-9C8F7C1CD109",
       "5A0D45B3-8E26-4385-8C5D-213E160A5E3C",
@@ -74,7 +74,7 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
   }
 
   private func description(at index: Int) -> String? {
-    return [
+    [
       "Description 1",
       nil,
       "Description 3",
@@ -87,7 +87,7 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
   }
 
   private func location(at index: Int) -> String? {
-    return [
+    [
       "Location 1",
       "Location 2",
       nil,
@@ -100,6 +100,6 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
   }
 
   private func imageURL(at index: Int) -> URL {
-    return URL(string: "https://url-\(index+1).com")!
+    URL(string: "https://url-\(index+1).com")!
   }
 }
