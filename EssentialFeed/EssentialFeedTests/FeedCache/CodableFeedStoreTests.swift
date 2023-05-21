@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class CodableFeedStoreTests: XCTestCase {
+final class CodableFeedStoreTests: XCTestCase, FeedStoreSpecs {
 
   override func setUp() {
     super.setUp()
@@ -112,7 +112,6 @@ final class CodableFeedStoreTests: XCTestCase {
 
     XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error due to invalid store URL")
   }
-  
 
   func test_insert_hasNoSideEffectsOnInsertionError() {
     let invalidStoreURL = URL(string: "invalid://store-url")
