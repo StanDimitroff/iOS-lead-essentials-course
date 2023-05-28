@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class CodableFeedStoreTests: XCTestCase, FeedStoreSpecs {
+final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
 
   override func setUp() {
     super.setUp()
@@ -52,7 +52,7 @@ final class CodableFeedStoreTests: XCTestCase, FeedStoreSpecs {
 
     try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
 
-    expect(sut, toRetrieve: .failure(anyNSError()))
+    assertThatRetrieveDeliversFailureOnRetrievalError(on: sut)
   }
 
   func test_retrieve_hasNoSideEffectsOnFailure() {
@@ -61,7 +61,7 @@ final class CodableFeedStoreTests: XCTestCase, FeedStoreSpecs {
 
     try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
 
-    expect(sut, toRetrieveTwice: .failure(anyNSError()))
+    assertThatRetrieveHasNoSideEffectsOnFailure(on: sut)
   }
 
   func test_insert_overridesPreviouslyInsertedCacheValues() {
@@ -148,7 +148,7 @@ final class CodableFeedStoreTests: XCTestCase, FeedStoreSpecs {
 
   func test_storeSideEffects_runSerially() {
     let sut = makeSUT()
-   
+
     assertThatSideEffectsRunSerially(on: sut)
   }
 
