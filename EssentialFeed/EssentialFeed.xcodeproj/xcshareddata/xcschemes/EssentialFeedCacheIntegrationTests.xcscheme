@@ -13,7 +13,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../EssentialFeedIntegrationTests.xctestplan"
+            reference = "container:EssentialFeedCacheIntegrationTests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -23,8 +23,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "443CEA362A753DA400B10A7C"
-               BuildableName = "EssentialFeedIntegrationTests.xctest"
-               BlueprintName = "EssentialFeedIntegrationTests"
+               BuildableName = "EssentialFeedCacheIntegrationTests.xctest"
+               BlueprintName = "EssentialFeedCacheIntegrationTests"
                ReferencedContainer = "container:EssentialFeed.xcodeproj">
             </BuildableReference>
          </TestableReference>
