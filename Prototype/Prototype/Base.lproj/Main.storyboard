@@ -21,20 +21,20 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="y9p-8h-N6W">
-                            <rect key="frame" x="0.0" y="494" width="393" height="16"/>
+                            <rect key="frame" x="0.0" y="544" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="400" id="Reo-o4-emD" customClass="FeedImageCell" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66" width="393" height="400"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="450" id="Reo-o4-emD" customClass="FeedImageCell" customModule="Prototype" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="66" width="393" height="450"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Reo-o4-emD" id="XPV-G9-jti">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9dU-M9-aoo">
-                                            <rect key="frame" x="20" y="17" width="353" height="366"/>
+                                            <rect key="frame" x="20" y="17" width="353" height="416"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hNM-Ql-9Ek" userLabel="Location Container">
                                                     <rect key="frame" x="0.0" y="0.0" width="79" height="36"/>
@@ -67,15 +67,16 @@ Location</string>
                                                     </subviews>
                                                 </stackView>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwb-Ji-1CP" userLabel="Image Container">
-                                                    <rect key="frame" x="0.0" y="46.000000000000014" width="350" height="195.33333333333337"/>
+                                                    <rect key="frame" x="0.0" y="46" width="350" height="350"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2y3-Ww-6Eo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="195.33333333333334"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="2y3-Ww-6Eo" firstAttribute="top" secondItem="iwb-Ji-1CP" secondAttribute="top" id="dcW-XO-02C"/>
+                                                        <constraint firstAttribute="width" secondItem="iwb-Ji-1CP" secondAttribute="height" multiplier="1:1" id="h0K-M4-bAD"/>
                                                         <constraint firstItem="2y3-Ww-6Eo" firstAttribute="leading" secondItem="iwb-Ji-1CP" secondAttribute="leading" id="v0G-77-sP2"/>
                                                         <constraint firstAttribute="trailing" secondItem="2y3-Ww-6Eo" secondAttribute="trailing" id="vob-9v-33N"/>
                                                         <constraint firstAttribute="bottom" secondItem="2y3-Ww-6Eo" secondAttribute="bottom" id="vqp-Vn-921"/>
@@ -87,7 +88,7 @@ Location</string>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4N9-aD-V69">
-                                                    <rect key="frame" x="0.0" y="251.33333333333329" width="170.33333333333334" height="114.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="406" width="170.33333333333334" height="10"/>
                                                     <string key="text">Description Description
 Description Description
 Description Description
@@ -102,15 +103,14 @@ Description Description</string>
                                             <constraints>
                                                 <constraint firstItem="iwb-Ji-1CP" firstAttribute="width" secondItem="9dU-M9-aoo" secondAttribute="width" multiplier="0.991501" id="dBY-Q9-69t"/>
                                                 <constraint firstItem="hNM-Ql-9Ek" firstAttribute="width" secondItem="9dU-M9-aoo" secondAttribute="width" multiplier="0.223796" id="sGT-Ev-3e1"/>
-                                                <constraint firstItem="iwb-Ji-1CP" firstAttribute="width" secondItem="9dU-M9-aoo" secondAttribute="height" multiplier="1:1" id="tHW-Wc-Zye"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="9dU-M9-aoo" secondAttribute="bottom" constant="6" id="Cwf-Hd-TIq"/>
+                                        <constraint firstItem="9dU-M9-aoo" firstAttribute="top" secondItem="XPV-G9-jti" secondAttribute="topMargin" priority="999" constant="6" id="6pK-li-glj"/>
                                         <constraint firstItem="9dU-M9-aoo" firstAttribute="leading" secondItem="XPV-G9-jti" secondAttribute="leadingMargin" id="S5j-Ih-zOJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="9dU-M9-aoo" secondAttribute="trailing" id="aoD-Pz-8x2"/>
-                                        <constraint firstItem="9dU-M9-aoo" firstAttribute="top" secondItem="XPV-G9-jti" secondAttribute="topMargin" constant="6" id="tUl-fs-g87"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="9dU-M9-aoo" secondAttribute="bottom" priority="999" constant="6" id="ghf-to-VLF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
