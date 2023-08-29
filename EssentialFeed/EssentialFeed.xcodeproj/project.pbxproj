@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4412613B2A9A152900FFA986 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412613A2A9A152900FFA986 /* FeedViewController.swift */; };
+		4412613D2A9E272400FFA986 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412613C2A9E272400FFA986 /* FeedImageCell.swift */; };
 		4416C79A2A8659F500ED1A6B /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416C7992A8659F500ED1A6B /* FeedViewControllerTests.swift */; };
 		4416C7A12A86642D00ED1A6B /* XCTestCase+MemoryTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C57FE329993E040032EE24 /* XCTestCase+MemoryTracking.swift */; };
 		441DD48929C5A27800683A19 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441DD48829C5A27800683A19 /* CacheFeedUseCaseTests.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		4412613A2A9A152900FFA986 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		4412613C2A9E272400FFA986 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		4416C7992A8659F500ED1A6B /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		441DD48829C5A27800683A19 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		441DD48F29C88ADF00683A19 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				4412613A2A9A152900FFA986 /* FeedViewController.swift */,
+				4412613C2A9E272400FFA986 /* FeedImageCell.swift */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4412613B2A9A152900FFA986 /* FeedViewController.swift in Sources */,
+				4412613D2A9E272400FFA986 /* FeedImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
