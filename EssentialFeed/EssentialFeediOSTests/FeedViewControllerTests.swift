@@ -91,6 +91,23 @@ final class FeedViewControllerTests: XCTestCase {
     XCTAssertEqual(loader.loadedImageURLs, [image0.url, image1.url], "Expected second image URL request once second view becomes visible")
   }
 
+  func test_feedImageView_cancelsImageLoadingWhenViewNotVisibleAnymore() {
+    let image0 = makeImage(url: .init(string: "http://url-0.com")!)
+    let image1 = makeImage(url: .init(string: "http://url-1.com")!)
+
+    let (sut, loader) = makeSUT()
+
+    sut.loadViewIfNeeded()
+    loader.completeFeedLoading(with: [image0, image1], at: 0)
+    XCTAssertEqual(loader.cancelledImageURLs, [], "Expected no cancelled image URL requests until image is not visible")
+
+    sut.simulateFeedImageViewNotVisible(at: 0)
+    XCTAssertEqual(loader.cancelledImageURLs, [image0.url], "Expected one cancelled image URL request once first image is not visible anymore")
+
+    sut.simulateFeedImageViewNotVisible(at: 1)
+    XCTAssertEqual(loader.cancelledImageURLs, [image0.url, image1.url], "Expected two cancelled image URL request once second image is also not visible anymore")
+  }
+
   // MARK: - Helpers
 
   private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
@@ -158,9 +175,14 @@ final class FeedViewControllerTests: XCTestCase {
     // MARK: - FeedImageDataLoader
 
     private(set) var loadedImageURLs = [URL]()
+    private(set) var cancelledImageURLs = [URL]()
 
     func loadFeedImageData(from url: URL) {
       loadedImageURLs.append(url)
+    }
+
+    func cancelImageDataLoad(from url: URL) {
+      cancelledImageURLs.append(url)
     }
   }
 }
@@ -172,6 +194,14 @@ private extension FeedViewController {
 
   func simulateFeedImageViewBecomeVisible(at index: Int) {
     _ = feedImageView(at: index)
+  }
+
+  func simulateFeedImageViewNotVisible(at row: Int) {
+    let view = feedImageView(at: row)
+
+    let delegate = tableView.delegate
+    let indexPath = IndexPath(row: row, section: feedImageSection)
+    delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: indexPath)
   }
 
   var isShowingLoadingIndicator: Bool {
