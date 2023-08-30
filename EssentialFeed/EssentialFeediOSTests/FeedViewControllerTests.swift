@@ -32,13 +32,13 @@ final class FeedViewControllerTests: XCTestCase {
     XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicaror once view is loaded")
 
     loader.completeFeedLoading(at: 0)
-    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed")
+    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed successfully")
 
     sut.simulateUserInitiatedFeedReload()
     XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicaror once user initiates a reload")
 
-    loader.completeFeedLoading(at: 1)
-    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed")
+    loader.completeFeedLoadingWithError(at: 1)
+    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed with error")
   }
 
   func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
@@ -61,7 +61,7 @@ final class FeedViewControllerTests: XCTestCase {
   }
 
   func test_loadFeedCompletion_doesNotAlterCurrentRenderingStateOnError() {
-    let image0 = makeImage(description: "a description", location: "a location")
+    let image0 = makeImage()
 
     let (sut, loader) = makeSUT()
 
@@ -86,7 +86,7 @@ final class FeedViewControllerTests: XCTestCase {
     return (sut, loader)
   }
 
-  private func makeImage(description: String?, location: String?, url: URL = .init(string: "http://any-url.com")!) -> FeedImage {
+  private func makeImage(description: String? = nil, location: String? = nil, url: URL = .init(string: "http://any-url.com")!) -> FeedImage {
     FeedImage(id: UUID(), description: description, location: location, url: url)
   }
 
