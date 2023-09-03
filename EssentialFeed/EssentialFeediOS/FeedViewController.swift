@@ -68,7 +68,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     let loadImage = { [weak self, weak cell] in
       guard let self else { return }
 
-      tasks[indexPath] = imageLoader?.loadFeedImageData(from: cellModel.url) { [weak cell] result in
+      self.tasks[indexPath] = self.imageLoader?.loadFeedImageData(from: cellModel.url) { [weak cell] result in
         let data = try? result.get()
         let image = data.map(UIImage.init) ?? nil
         cell?.feedImageView.image = image
