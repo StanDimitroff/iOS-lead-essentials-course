@@ -49,7 +49,7 @@ final class FeedImageCellConroller {
     task = imageLoader.loadFeedImageData(from: model.url, completion: { _ in })
   }
 
-  deinit {
+  func cancelLoad() {
     task?.cancel()
   }
 }
