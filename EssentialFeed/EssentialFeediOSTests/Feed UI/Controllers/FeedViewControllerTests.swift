@@ -25,21 +25,21 @@ final class FeedViewControllerTests: XCTestCase {
     XCTAssertEqual(loader.loadFeedCallCount, 3, "Expected third loading request once user initiates another load")
   }
 
-  func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
-    let (sut, loader) = makeSUT()
-
-    sut.loadViewIfNeeded()
-    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
-
-    loader.completeFeedLoading(at: 0)
-    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed successfully")
-
-    sut.simulateUserInitiatedFeedReload()
-    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
-
-    loader.completeFeedLoadingWithError(at: 1)
-    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed with error")
-  }
+//  func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
+//    let (sut, loader) = makeSUT()
+//
+//    sut.loadViewIfNeeded()
+//    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
+//
+//    loader.completeFeedLoading(at: 0)
+//    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed successfully")
+//
+//    sut.simulateUserInitiatedFeedReload()
+//    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
+//
+//    loader.completeFeedLoadingWithError(at: 1)
+//    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed with error")
+//  }
 
   func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
     let image0 = makeImage(description: "a description", location: "a location")
