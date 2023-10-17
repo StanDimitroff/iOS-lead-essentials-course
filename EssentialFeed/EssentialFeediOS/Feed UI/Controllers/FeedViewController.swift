@@ -16,9 +16,13 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
   }
 
-  convenience init(refreshController: FeedRefreshViewController) {
-    self.init()
+  init?(coder: NSCoder, refreshController: FeedRefreshViewController) {
     self.refreshController = refreshController
+    super.init(coder: coder)
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 
   public override func viewDidLoad() {
