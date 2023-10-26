@@ -7,26 +7,36 @@
 
 import UIKit
 
-public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
+protocol FeedViewConrollerDelegate {
+  func didRequestFeedRefresh()
+}
 
-  private var refreshController: FeedRefreshViewController?
+public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView {
+
+  var delegate: FeedViewConrollerDelegate?
+
   var tableModel = [FeedImageCellController]() {
     didSet {
       tableView.reloadData()
     }
   }
 
-  convenience init(refreshController: FeedRefreshViewController) {
-    self.init()
-    self.refreshController = refreshController
-  }
-
   public override func viewDidLoad() {
     super.viewDidLoad()
 
-    refreshControl = refreshController?.view
-    tableView.prefetchDataSource = self
-    refreshController?.refresh()
+    refresh()
+  }
+
+  func display(_ viewModel: FeedLoadingViewModel) {
+    if viewModel.isLoading {
+      refreshControl?.beginRefreshing()
+    } else {
+      refreshControl?.endRefreshing()
+    }
+  }
+
+  @IBAction private func refresh() {
+    delegate?.didRequestFeedRefresh()
   }
 
   public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,7 +44,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
   }
 
   public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    cellController(forRowAt: indexPath).view()
+    cellController(forRowAt: indexPath).view(in: tableView)
   }
 
   public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
