@@ -8,7 +8,7 @@
 import EssentialFeed
 import EssentialFeediOS
 
-extension FeedViewControllerTests {
+extension FeedViewControllerIntergrationTests {
 
   class LoaderSpy: FeedLoader, FeedImageDataLoader  {
 
