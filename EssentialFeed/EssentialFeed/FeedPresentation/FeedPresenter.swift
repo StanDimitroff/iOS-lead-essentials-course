@@ -18,17 +18,6 @@ public protocol FeedView {
 public protocol FeedErrorView {
   func display(_ viewModel: FeedErrorViewModel)
 }
-public struct FeedErrorViewModel {
-  public let message: String?
-
-  static var noError: FeedErrorViewModel {
-    FeedErrorViewModel(message: nil)
-  }
-
-  static func error(message: String) -> FeedErrorViewModel {
-    FeedErrorViewModel(message: message)
-  }
-}
 
 public final class FeedPresenter {
 
