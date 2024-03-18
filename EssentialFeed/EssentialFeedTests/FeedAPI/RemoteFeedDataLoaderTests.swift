@@ -37,6 +37,16 @@ final class RemoteFeedDataLoaderTests: XCTestCase {
     XCTAssertEqual(client.requestedURLs, [url])
   }
 
+  func test_loadImageDataFromURLTwice_requestsDataFromURLTwice() {
+    let url = URL(string: "https://a-url.com")!
+    let (sut, client) = makeSUT()
+
+    sut.loadImageData(from: url) { _ in }
+    sut.loadImageData(from: url) { _ in }
+
+    XCTAssertEqual(client.requestedURLs, [url, url])
+  }
+
   // MARK: - Helpers
 
   private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFeedDataLoader, client: HTTPClientSpy) {
