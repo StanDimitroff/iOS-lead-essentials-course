@@ -37,11 +37,11 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
 
   // MARK: - Sad path
 
-  func test_loadImageDataFromURL_deliversErrorOnClientError() {
+  func test_loadImageDataFromURL_deliversConnectivityErrorOnClientError() {
     let (sut, client) = makeSUT()
-    let clientError = NSError(domain: "Client error", code: 0)
+    let clientError = NSError(domain: "a client error", code: 0)
 
-    expect(sut, toCompleteWith: .failure(clientError), when: {
+    expect(sut, toCompleteWith: failure(.connectivity), when: {
       client.complete(with: clientError)
     })
   }
