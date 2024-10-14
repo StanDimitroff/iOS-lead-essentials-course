@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440B3E0D2CBCE47A001B6575 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440B3E0C2CBCE47A001B6575 /* HTTPClientSpy.swift */; };
 		4412613B2A9A152900FFA986 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412613A2A9A152900FFA986 /* FeedViewController.swift */; };
 		4412613D2A9E272400FFA986 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412613C2A9E272400FFA986 /* FeedImageCell.swift */; };
 		4416C79A2A8659F500ED1A6B /* FeedViewControllerIntergrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416C7992A8659F500ED1A6B /* FeedViewControllerIntergrationTests.swift */; };
@@ -145,6 +146,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		440B3E0C2CBCE47A001B6575 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		4412613A2A9A152900FFA986 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		4412613C2A9E272400FFA986 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		4416C7992A8659F500ED1A6B /* FeedViewControllerIntergrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerIntergrationTests.swift; sourceTree = "<group>"; };
@@ -280,6 +282,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		440B3E0B2CBCE460001B6575 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				440B3E0C2CBCE47A001B6575 /* HTTPClientSpy.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4416C79B2A8662E200ED1A6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +427,7 @@
 		447D2411297C31E6003CCDD6 /* FeedAPI */ = {
 			isa = PBXGroup;
 			children = (
+				440B3E0B2CBCE460001B6575 /* Helpers */,
 				4464F4242969AF9B009C7070 /* RemoteFeedLoaderTests.swift */,
 				44C57FDD299385E50032EE24 /* URLSessionHTTPClientTests.swift */,
 				44209EDA2BA8289500A41C59 /* RemoteFeedImageDataLoaderTests.swift */,
@@ -882,6 +893,7 @@
 				44CB1AB82B7B66AD008B626A /* FeedLocalizationTests.swift in Sources */,
 				44C57FE429993E040032EE24 /* XCTestCase+MemoryTracking.swift in Sources */,
 				4440FC4029D881630047CE4F /* FeedStoreSpy.swift in Sources */,
+				440B3E0D2CBCE47A001B6575 /* HTTPClientSpy.swift in Sources */,
 				445ED11429E3240C0012A79C /* SharedTestHelpers.swift in Sources */,
 				441DD48929C5A27800683A19 /* CacheFeedUseCaseTests.swift in Sources */,
 				44BE9A082A23411B00C50C2F /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */,
