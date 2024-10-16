@@ -50,7 +50,7 @@ extension FeedViewControllerIntergrationTests {
 
     private(set) var cancelledImageURLs = [URL]()
 
-    func loadFeedImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
       imageRequests.append((url: url, completion: completion))
 
       return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url) }
