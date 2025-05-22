@@ -327,9 +327,9 @@
 		441DD48E29C88AC700683A19 /* FeedCache */ = {
 			isa = PBXGroup;
 			children = (
+				44D636282A2BECB30095765B /* Infrastructure */,
 				443A014D2DDF1C0A00657CC2 /* FeedImageDataStore.swift */,
 				443A014B2DDF1BD400657CC2 /* LocalFeedImageDataLoader.swift */,
-				44D636282A2BECB30095765B /* Infrastructure */,
 				441DD48F29C88ADF00683A19 /* LocalFeedLoader.swift */,
 				441DD49129C88B1900683A19 /* FeedStore.swift */,
 				44AF017129CF80EA008DFE74 /* LocalFeedImage.swift */,
