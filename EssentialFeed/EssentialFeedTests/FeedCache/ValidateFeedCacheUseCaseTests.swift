@@ -82,7 +82,11 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
     XCTAssertEqual(store.receivedMessages, [.retrieve])
   }
 
-  private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
+  private func makeSUT(
+    currentDate: @escaping () -> Date = Date.init,
+    file: StaticString = #filePath,
+    line: UInt = #line
+  ) -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
     let store = FeedStoreSpy()
     let sut = LocalFeedLoader(store: store, currentDate: currentDate)
 
